@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Youssef Geyoushi | Senior Compositor, AI Artist &amp; Video Editor</title>
 <meta name="description" content="Youssef Geyoushi — Senior Compositor &amp; Co-Lead at Trend VFX, AI Artist and Video Editor based in Cairo. 40+ films and TV series including Asad, The Assassins and El Maddah.">
 <meta name="theme-color" content="#0b0b0f">
@@ -54,14 +56,7 @@
   <!-- HERO -->
   <section class="hero">
     <video class="hero-bg" autoplay muted loop playsinline aria-hidden="true"></video>
-    <script>
-      // Phones get a vertical cut reframed per shot; wider screens get the 16:9 loop
-      (function (v) {
-        var phone = window.matchMedia('(max-width: 680px)').matches;
-        v.poster = phone ? 'media/hero-mobile.jpg' : 'media/hero.jpg';
-        v.src = phone ? 'media/hero-mobile.mp4' : 'media/hero.mp4';
-      })(document.currentScript.previousElementSibling);
-    </script>
+    <script src="hero.js"></script>
     <div class="hero-shade"></div>
     <div class="hero-inner wrap">
       <p class="eyebrow"><span class="dot"></span> Available for freelance &amp; full-time projects</p>
@@ -121,6 +116,7 @@
         <source src="media/showreel.mp4" type="video/mp4">
       </video>
     </div>
+    <div class="reel-actions"><a class="btn btn-ghost btn-small" href="media/showreel.mp4" download="Youssef-Geyoushi-Showreel-2026.mp4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Download Showreel</a></div>
   </section>
 
   <!-- COMPOSITING -->
@@ -142,6 +138,7 @@
           <p class="tag">Feature Film · VFX Breakdown</p>
           <p>Historical epic — CG environments, city extensions, digital crowds and FX integration.</p>
         </div>
+        <a class="dl" href="media/asad-breakdown.mp4" download="Youssef-Geyoushi-asad-breakdown.mp4" aria-label="Download Asad — VFX Breakdown"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="card" data-play="media/oscar-breakdown.mp4" data-title="Oscar: Return of the Mammoth — VFX Breakdown" tabindex="0" role="button" aria-label="Play Oscar VFX breakdown">
         <div class="thumb">
@@ -154,6 +151,7 @@
           <p class="tag">Feature Film · VFX Breakdown</p>
           <p>CG creature compositing, keying, set extensions and seamless plate integration.</p>
         </div>
+        <a class="dl" href="media/oscar-breakdown.mp4" download="Youssef-Geyoushi-oscar-breakdown.mp4" aria-label="Download Oscar: Return of the Mammoth — VFX Breakdown"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
     </div>
   </section>
@@ -176,6 +174,7 @@
           <p class="tag">AI Cleanup · Compositing</p>
           <p>Every player removed from a moving football shot, leaving a clean, natural plate.</p>
         </div>
+        <a class="dl" href="media/ai-cleanup.mp4" download="Youssef-Geyoushi-ai-cleanup.mp4" aria-label="Download People Cleanup by AI"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="card ai" data-play="media/ai-tattoo.mp4" data-title="Tattoo Removal by AI" tabindex="0" role="button" aria-label="Play Tattoo Removal by AI">
         <div class="thumb">
@@ -187,6 +186,7 @@
           <p class="tag">AI Cleanup · Beauty Work</p>
           <p>Full-body tattoos removed on moving skin while keeping natural texture and lighting.</p>
         </div>
+        <a class="dl" href="media/ai-tattoo.mp4" download="Youssef-Geyoushi-ai-tattoo.mp4" aria-label="Download Tattoo Removal by AI"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="card ai" data-play="media/ai-stadium.mp4" data-title="Stadium Transformation by AI — Kingdom Arena" tabindex="0" role="button" aria-label="Play Stadium Transformation by AI">
         <div class="thumb">
@@ -197,6 +197,7 @@
           <p class="tag">AI Generation · Environment</p>
           <p>Al Hilal's Kingdom Arena reimagined with AI — new look, lighting and branding on a moving aerial shot.</p>
         </div>
+        <a class="dl" href="media/ai-stadium.mp4" download="Youssef-Geyoushi-ai-stadium.mp4" aria-label="Download Stadium Transformation by AI — Kingdom Arena"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="card ai" data-play="media/ai-screen.mp4" data-title="Screen Replacement by AI &amp; Compositing" tabindex="0" role="button" aria-label="Play Screen Replacement by AI and Compositing">
         <div class="thumb">
@@ -207,6 +208,7 @@
           <p class="tag">AI Generation · Compositing</p>
           <p>New AI-generated screen content, composited into the shot with matching light and grade.</p>
         </div>
+        <a class="dl" href="media/ai-screen.mp4" download="Youssef-Geyoushi-ai-screen.mp4" aria-label="Download Screen Replacement by AI &amp; Compositing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="card ai card-wide" data-play="media/ai-daynight.mp4" data-title="Day to Night by AI" tabindex="0" role="button" aria-label="Play Day to Night by AI">
         <div class="thumb thumb-tall">
@@ -218,6 +220,7 @@
           <p class="tag">AI Relighting · Compositing</p>
           <p>A daytime street shot turned into a convincing night scene — new sky, street lights, car lights and a full regrade, while the actor stays untouched.</p>
         </div>
+        <a class="dl" href="media/ai-daynight.mp4" download="Youssef-Geyoushi-ai-daynight.mp4" aria-label="Download Day to Night by AI"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
     </div>
   </section>
@@ -237,7 +240,8 @@
           <span class="len">1:23</span>
         </div>
         <h3>The Sad Companion</h3>
-              </article>
+                <a class="dl" href="media/edit-sahabi.mp4" download="Youssef-Geyoushi-edit-sahabi.mp4" aria-label="Download The Sad Companion"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
+      </article>
       <article class="phone" data-play="media/edit-ein-3.mp4" data-title="Al-Hasan &amp; Al-Husayn" tabindex="0" role="button" aria-label="Play edit: El Ein Short 3">
         <div class="screen">
           <img src="media/edit-ein-3.jpg" alt="" loading="lazy">
@@ -245,6 +249,7 @@
           <span class="len">0:45</span>
         </div>
         <h3>Al-Hasan &amp; Al-Husayn</h3>
+        <a class="dl" href="media/edit-ein-3.mp4" download="Youssef-Geyoushi-edit-ein-3.mp4" aria-label="Download Al-Hasan &amp; Al-Husayn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
       <article class="phone" data-play="media/edit-dua.mp4" data-title="Supplication in Ease &amp; Hardship" tabindex="0" role="button" aria-label="Play edit: Dua in good and hard times">
         <div class="screen">
@@ -253,7 +258,8 @@
           <span class="len">1:16</span>
         </div>
         <h3>Supplication in Ease &amp; Hardship</h3>
-              </article>
+                <a class="dl" href="media/edit-dua.mp4" download="Youssef-Geyoushi-edit-dua.mp4" aria-label="Download Supplication in Ease &amp; Hardship"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
+      </article>
       <article class="phone" data-play="media/edit-ein-1.mp4" data-title="The Evil Eye" tabindex="0" role="button" aria-label="Play edit: El Ein Short 1">
         <div class="screen">
           <img src="media/edit-ein-1.jpg" alt="" loading="lazy">
@@ -261,6 +267,7 @@
           <span class="len">0:20</span>
         </div>
         <h3>The Evil Eye</h3>
+        <a class="dl" href="media/edit-ein-1.mp4" download="Youssef-Geyoushi-edit-ein-1.mp4" aria-label="Download The Evil Eye"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Download</span></a>
       </article>
     </div>
   </section>
@@ -354,7 +361,7 @@
   <button class="lb-close" aria-label="Close video">×</button>
   <div class="lb-inner">
     <video id="lb-video" controls playsinline></video>
-    <p class="lb-title" id="lb-title"></p>
+    <div class="lb-bar"><p class="lb-title" id="lb-title"></p><a class="btn btn-ghost btn-small" id="lb-download" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Download</a></div>
   </div>
 </div>
 

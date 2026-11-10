@@ -29,12 +29,15 @@ track.querySelectorAll('img, span').forEach((el, i, all) => { if (i >= all.lengt
 const lb = document.getElementById('lightbox');
 const lbVideo = document.getElementById('lb-video');
 const lbTitle = document.getElementById('lb-title');
+const lbDownload = document.getElementById('lb-download');
 let lastFocus = null;
 
 function openVideo(src, title) {
   lastFocus = document.activeElement;
   lbVideo.src = src;
   lbTitle.textContent = title || '';
+  lbDownload.href = src;
+  lbDownload.download = 'Youssef-Geyoushi-' + src.split('/').pop();
   lb.hidden = false;
   document.body.style.overflow = 'hidden';
   lbVideo.play().catch(() => {});
@@ -51,9 +54,9 @@ function closeVideo() {
 
 document.querySelectorAll('[data-play]').forEach(el => {
   const open = () => openVideo(el.dataset.play, el.dataset.title);
-  el.addEventListener('click', open);
+  el.addEventListener('click', e => { if (!e.target.closest('.dl')) open(); });
   el.addEventListener('keydown', e => {
-    if (el.tagName !== 'BUTTON' && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(); }
+    if (el.tagName !== 'BUTTON' && e.target === el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(); }
   });
 });
 lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-close')) closeVideo(); });
