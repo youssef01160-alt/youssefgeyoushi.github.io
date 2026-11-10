@@ -142,18 +142,6 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 
 .thumb:focus-visible, .screen:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-/* HIDDEN DOWNLOAD MENU (⋮ inside the players) */
-.card, .phone { position: relative; }
-.reel { position: relative; }
-.lb-frame { position: relative; display: inline-block; max-width: 100%; }
-.vmenu { position: absolute; top: 12px; right: 12px; z-index: 2; opacity: .35; transition: opacity .25s; }
-.reel:hover .vmenu, .lb-frame:hover .vmenu, .vmenu:focus-within, .vmenu.open { opacity: 1; }
-.vmenu-btn { width: 36px; height: 36px; border-radius: 50%; border: 0; display: grid; place-items: center; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; backdrop-filter: blur(6px); }
-.vmenu-btn:hover, .vmenu-btn:focus-visible { background: rgba(0,0,0,.8); outline: none; }
-.vmenu-btn svg { width: 18px; height: 18px; fill: currentColor; }
-.vmenu-list { position: absolute; top: 42px; right: 0; min-width: 150px; padding: 6px; border-radius: 12px; background: rgba(18,18,25,.96); border: 1px solid var(--line); box-shadow: 0 16px 40px -12px rgba(0,0,0,.7); }
-.vmenu-list a { display: block; padding: 9px 12px; border-radius: 8px; font-size: 14px; color: var(--text); text-decoration: none; }
-.vmenu-list a:hover, .vmenu-list a:focus-visible { background: rgba(255,255,255,.08); outline: none; }
 
 /* SERVICES */
 .service { padding: 30px 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }

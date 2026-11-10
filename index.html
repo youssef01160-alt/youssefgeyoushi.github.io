@@ -113,10 +113,9 @@
       <p class="sub">Keying, rotoscoping, cleanup and CG compositing from feature films, TV series and commercials.</p>
     </div>
     <div class="reel">
-      <video controls controlslist="nodownload" preload="none" playsinline poster="media/showreel.jpg">
+      <video controls preload="none" playsinline poster="media/showreel.jpg">
         <source src="media/showreel.mp4" type="video/mp4">
       </video>
-      <div class="vmenu"><button class="vmenu-btn" type="button" aria-label="More options" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button><div class="vmenu-list" hidden><a href="media/showreel.mp4" download="Youssef-Geyoushi-Showreel-2026.mp4">Download</a></div></div>
     </div>
   </section>
 
@@ -350,10 +349,7 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
   <button class="lb-close" aria-label="Close video">×</button>
   <div class="lb-inner">
-    <div class="lb-frame">
-      <video id="lb-video" controls controlslist="nodownload" playsinline></video>
-      <div class="vmenu"><button class="vmenu-btn" type="button" aria-label="More options" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></button><div class="vmenu-list" hidden><a id="lb-download" download>Download</a></div></div>
-    </div>
+    <video id="lb-video" controls playsinline></video>
     <p class="lb-title" id="lb-title"></p>
   </div>
 </div>
