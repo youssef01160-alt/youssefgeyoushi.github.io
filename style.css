@@ -231,7 +231,11 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 /* PHONE */
 @media (max-width: 680px) {
   .brand-name { display: none; }
-  .hero { padding-bottom: 48px; }
+  /* Show the whole 16:9 background video on phones instead of cropping its sides */
+  .hero { min-height: 0; flex-direction: column; align-items: stretch; padding: 71px 0 44px; }
+  .hero-bg { position: relative; inset: auto; height: auto; aspect-ratio: 16 / 9; }
+  .hero-shade { inset: 71px 0 auto; height: calc(100vw * 9 / 16); background: linear-gradient(180deg, rgba(11,11,15,0) 55%, var(--bg) 100%); }
+  .hero-inner { margin-top: 18px; }
   .eyebrow { font-size: 13px; }
   .roles { font-size: 19px; }
   .roles i { display: none; }
