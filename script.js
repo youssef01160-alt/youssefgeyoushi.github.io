@@ -34,6 +34,8 @@ let lastFocus = null;
 
 function openVideo(src, title) {
   lastFocus = document.activeElement;
+  // Only one video with sound at a time
+  document.querySelectorAll('video').forEach(v => { if (!v.muted && v !== lbVideo) v.pause(); });
   lbVideo.src = src;
   lbTitle.textContent = title || '';
   lbDownload.href = src;
@@ -55,8 +57,10 @@ function closeVideo() {
 document.querySelectorAll('[data-play]').forEach(el => {
   const open = () => openVideo(el.dataset.play, el.dataset.title);
   el.addEventListener('click', e => { if (!e.target.closest('.dl')) open(); });
-  el.addEventListener('keydown', e => {
-    if (el.tagName !== 'BUTTON' && e.target === el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(); }
+  // Cards are opened from the keyboard through their focusable thumbnail
+  const key = el.querySelector('[role="button"]');
+  if (key) key.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
   });
 });
 lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-close')) closeVideo(); });

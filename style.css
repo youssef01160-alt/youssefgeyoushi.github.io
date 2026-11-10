@@ -104,8 +104,8 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 
 /* CARDS */
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform .35s, border-color .35s, box-shadow .35s; }
-.card:hover, .card:focus-visible { transform: translateY(-6px); border-color: rgba(255,106,61,.55); box-shadow: 0 30px 60px -30px rgba(255,106,61,.45); outline: none; }
-.card.ai:hover, .card.ai:focus-visible { border-color: rgba(139,107,255,.6); box-shadow: 0 30px 60px -30px rgba(139,107,255,.5); }
+.card:hover, .card:focus-within { transform: translateY(-6px); border-color: rgba(255,106,61,.55); box-shadow: 0 30px 60px -30px rgba(255,106,61,.45); outline: none; }
+.card.ai:hover, .card.ai:focus-within { border-color: rgba(139,107,255,.6); box-shadow: 0 30px 60px -30px rgba(139,107,255,.5); }
 .thumb { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
 .thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
 .card:hover .thumb img { transform: scale(1.05); }
@@ -131,14 +131,17 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 
 /* EDITING — phone frames */
 .phones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.phone { cursor: pointer; outline: none; }
+.phone { cursor: pointer; outline: none; display: flex; flex-direction: column; }
+.phone h3 { flex: 1; }
 .screen { position: relative; aspect-ratio: 9 / 16; border-radius: 26px; overflow: hidden; background: #000; border: 6px solid #1d1d27; box-shadow: 0 0 0 1px var(--line), 0 30px 60px -35px rgba(45,212,191,.5); transition: transform .35s, box-shadow .35s; }
 .screen img { width: 100%; height: 100%; object-fit: cover; }
-.phone:hover .screen, .phone:focus-visible .screen { transform: translateY(-6px); box-shadow: 0 0 0 1px rgba(45,212,191,.6), 0 30px 60px -30px rgba(45,212,191,.6); }
+.phone:hover .screen, .screen:focus-visible { transform: translateY(-6px); box-shadow: 0 0 0 1px rgba(45,212,191,.6), 0 30px 60px -30px rgba(45,212,191,.6); }
 .play-edit { background: rgba(45,212,191,.92); width: 60px; height: 60px; }
 .play-edit svg { fill: #04201c; width: 24px; height: 24px; }
 .phone h3 { margin: 16px 0 4px; font-size: 20px; text-align: center; }
 .tag-edit { margin: 0; color: var(--accent-3); text-align: center; font-size: 12.5px; }
+
+.thumb:focus-visible, .screen:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
 /* DOWNLOADS */
 .card, .phone { position: relative; }
