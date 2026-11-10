@@ -50,13 +50,14 @@ function closeVideo() {
   lbVideo.removeAttribute('src');
   lbVideo.load();
   lb.hidden = true;
+  closeMenus();
   document.body.style.overflow = '';
   if (lastFocus) lastFocus.focus();
 }
 
 document.querySelectorAll('[data-play]').forEach(el => {
   const open = () => openVideo(el.dataset.play, el.dataset.title);
-  el.addEventListener('click', e => { if (!e.target.closest('.dl')) open(); });
+  el.addEventListener('click', open);
   // Cards are opened from the keyboard through their focusable thumbnail
   const key = el.querySelector('[role="button"]');
   if (key) key.addEventListener('keydown', e => {
@@ -65,6 +66,31 @@ document.querySelectorAll('[data-play]').forEach(el => {
 });
 lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-close')) closeVideo(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) closeVideo(); });
+
+// "⋮" menus inside the players hold the Download link
+function closeMenus(except) {
+  document.querySelectorAll('.vmenu.open').forEach(m => {
+    if (m === except) return;
+    m.classList.remove('open');
+    m.querySelector('.vmenu-list').hidden = true;
+    m.querySelector('.vmenu-btn').setAttribute('aria-expanded', 'false');
+  });
+}
+document.querySelectorAll('.vmenu').forEach(m => {
+  const btn = m.querySelector('.vmenu-btn');
+  const list = m.querySelector('.vmenu-list');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    closeMenus(m);
+    const open = list.hidden;
+    list.hidden = !open;
+    m.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  list.addEventListener('click', e => { e.stopPropagation(); closeMenus(); });
+});
+document.addEventListener('click', () => closeMenus());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenus(); });
 
 // AI cards: play muted previews only while on screen
 const previews = document.querySelectorAll('.card.ai video');

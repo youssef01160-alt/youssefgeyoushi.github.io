@@ -131,8 +131,7 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 
 /* EDITING — phone frames */
 .phones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.phone { cursor: pointer; outline: none; display: flex; flex-direction: column; }
-.phone h3 { flex: 1; }
+.phone { cursor: pointer; outline: none; }
 .screen { position: relative; aspect-ratio: 9 / 16; border-radius: 26px; overflow: hidden; background: #000; border: 6px solid #1d1d27; box-shadow: 0 0 0 1px var(--line), 0 30px 60px -35px rgba(45,212,191,.5); transition: transform .35s, box-shadow .35s; }
 .screen img { width: 100%; height: 100%; object-fit: cover; }
 .phone:hover .screen, .screen:focus-visible { transform: translateY(-6px); box-shadow: 0 0 0 1px rgba(45,212,191,.6), 0 30px 60px -30px rgba(45,212,191,.6); }
@@ -143,21 +142,18 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
 
 .thumb:focus-visible, .screen:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-/* DOWNLOADS */
+/* HIDDEN DOWNLOAD MENU (⋮ inside the players) */
 .card, .phone { position: relative; }
-.dl { display: inline-flex; align-items: center; gap: 6px; margin: 0 24px 22px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s, border-color .2s, background .2s; }
-.dl svg, .reel-actions svg, .lb-bar svg { width: 16px; height: 16px; flex: none; }
-.dl:hover, .dl:focus-visible { color: var(--text); border-color: rgba(255,106,61,.6); background: rgba(255,106,61,.1); outline: none; }
-.card.ai .dl:hover { border-color: rgba(139,107,255,.6); background: rgba(139,107,255,.12); }
-.card-wide { grid-template-rows: 1fr auto 1fr; }
-.card-wide .thumb { grid-row: 1 / -1; }
-.card-wide .card-body { grid-column: 2; grid-row: 2; padding-bottom: 18px; }
-.card-wide .dl { grid-column: 2; grid-row: 3; align-self: start; justify-self: start; margin: 0 40px 32px; }
-.phone .dl { display: flex; justify-content: center; margin: 12px auto 0; width: fit-content; }
-.phone .dl:hover { border-color: rgba(45,212,191,.6); background: rgba(45,212,191,.1); }
-.reel-actions { display: flex; justify-content: flex-end; margin-top: 14px; }
-.lb-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; margin-top: 14px; }
-.lb-bar .lb-title { margin: 0; text-align: left; }
+.reel { position: relative; }
+.lb-frame { position: relative; display: inline-block; max-width: 100%; }
+.vmenu { position: absolute; top: 12px; right: 12px; z-index: 2; opacity: .35; transition: opacity .25s; }
+.reel:hover .vmenu, .lb-frame:hover .vmenu, .vmenu:focus-within, .vmenu.open { opacity: 1; }
+.vmenu-btn { width: 36px; height: 36px; border-radius: 50%; border: 0; display: grid; place-items: center; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; backdrop-filter: blur(6px); }
+.vmenu-btn:hover, .vmenu-btn:focus-visible { background: rgba(0,0,0,.8); outline: none; }
+.vmenu-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.vmenu-list { position: absolute; top: 42px; right: 0; min-width: 150px; padding: 6px; border-radius: 12px; background: rgba(18,18,25,.96); border: 1px solid var(--line); box-shadow: 0 16px 40px -12px rgba(0,0,0,.7); }
+.vmenu-list a { display: block; padding: 9px 12px; border-radius: 8px; font-size: 14px; color: var(--text); text-decoration: none; }
+.vmenu-list a:hover, .vmenu-list a:focus-visible { background: rgba(255,255,255,.08); outline: none; }
 
 /* SERVICES */
 .service { padding: 30px 28px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
@@ -271,11 +267,6 @@ h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spaci
   .thumb-tall { aspect-ratio: 4 / 5; }
   .card-wide .card-body { padding: 22px 24px 26px; }
   .card-wide .card-body p:not(.tag) { font-size: 15px; }
-  .card-wide { grid-template-rows: none; }
-  .card-wide .thumb, .card-wide .card-body, .card-wide .dl { grid-column: auto; grid-row: auto; }
-  .card-wide .dl { margin: 0 24px 22px; }
-  .lb-bar { flex-direction: column; }
-  .lb-bar .lb-title { text-align: center; }
   .phones { grid-template-columns: repeat(4, 72%); }
   .process { grid-template-columns: 1fr; }
   .section { padding-top: 80px; }
