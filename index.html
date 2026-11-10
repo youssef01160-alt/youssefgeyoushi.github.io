@@ -53,9 +53,15 @@
 <main>
   <!-- HERO -->
   <section class="hero">
-    <video class="hero-bg" autoplay muted loop playsinline poster="media/hero.jpg" aria-hidden="true">
-      <source src="media/hero.mp4" type="video/mp4">
-    </video>
+    <video class="hero-bg" autoplay muted loop playsinline aria-hidden="true"></video>
+    <script>
+      // Phones get a vertical cut reframed per shot; wider screens get the 16:9 loop
+      (function (v) {
+        var phone = window.matchMedia('(max-width: 680px)').matches;
+        v.poster = phone ? 'media/hero-mobile.jpg' : 'media/hero.jpg';
+        v.src = phone ? 'media/hero-mobile.mp4' : 'media/hero.mp4';
+      })(document.currentScript.previousElementSibling);
+    </script>
     <div class="hero-shade"></div>
     <div class="hero-inner wrap">
       <p class="eyebrow"><span class="dot"></span> Available for freelance &amp; full-time projects</p>
